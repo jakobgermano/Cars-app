@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :vehicles
+  resources :vehicles 
   resources :drivers
   
   
