@@ -1,3 +1,3 @@
 class VehicleSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :year, :driver_id
 end
