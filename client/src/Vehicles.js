@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react"
+import VehicleCard from "./VehicleCard"
 
 function Vehicles() {
     const [vehicles, setVehicles] = useState([])
-
+    console.log(vehicles)
     useEffect(()=> {
         fetch("/vehicles")
         .then((r) => r.json())
@@ -13,7 +14,7 @@ function Vehicles() {
     return(
         <div>
             <h1>Vehicles</h1>
-            {vehicles.map((v) => <VehicleCard vehicle={v}/> )}
+            {vehicles.map(v => <VehicleCard vehicle={v} key={v.id} /> )}
         </div>
     )
 }

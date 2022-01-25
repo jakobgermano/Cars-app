@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-
+    skip_before_action :authorize 
     def index
         vehicles = Vehicle.all
         render json: vehicles 
