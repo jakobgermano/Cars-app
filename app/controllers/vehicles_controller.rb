@@ -7,7 +7,7 @@ class VehiclesController < ApplicationController
     
     def create
         vehicle = Vehicle.create(vehicle_params)
-        render json: vehicle, status: created
+        render json: vehicle
     end
 
     def updated

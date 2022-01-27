@@ -3,7 +3,7 @@ import VehicleCard from "./VehicleCard"
 
 function Vehicles() {
     const [vehicles, setVehicles] = useState([])
-    console.log(vehicles)
+    
     useEffect(()=> {
         fetch("/vehicles")
         .then((r) => r.json())

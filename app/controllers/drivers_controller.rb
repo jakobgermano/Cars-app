@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-    skip_before_action :authorize
+    skip_before_action :authorize, only: :create
     #, only: :create
 
     def index
@@ -9,6 +9,7 @@ class DriversController < ApplicationController
 
     def show
         driver = Driver.find(params[:id])
+        #driver = Driver.find(@current_user.id)
         render json: driver
     end
 

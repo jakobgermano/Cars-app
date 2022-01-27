@@ -10,6 +10,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :driver_id
-        head :no_content
+       
     end
 end

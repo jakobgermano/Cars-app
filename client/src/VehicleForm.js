@@ -2,7 +2,7 @@ import {useState} from "react"
 
 function VehicleForm() {
     const [name, setName] = useState("")
-    const[year, setYear] = useState()
+    const[year, setYear] = useState(0)
     
     function handleSubmit(e) {
         e.preventDefault()
@@ -19,6 +19,7 @@ function VehicleForm() {
             console.log(r)
         })
     }
+
     return (
         <div>
             <h1>Add Vehicle</h1>
@@ -27,7 +28,6 @@ function VehicleForm() {
                 <input type="text" id="name" value={name} onChange={e => setName(e.target.value)}/>
                 <label>Year</label>
                 <input type="text" id="name" value={year} onChange={e => setYear(e.target.value)}/>
-                <label/>
                 <input type="submit"/>
             </form>
 
