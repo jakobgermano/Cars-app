@@ -1,8 +1,10 @@
 import {useState} from "react"
 
-function VehicleForm() {
+function VehicleForm({driver, addVehicle}) {
     const [name, setName] = useState("")
     const[year, setYear] = useState(0)
+
+
     
     function handleSubmit(e) {
         e.preventDefault()
@@ -13,12 +15,15 @@ function VehicleForm() {
             },
             body: JSON.stringify({
                 name,
-                year
+                year,
+                driver_id: driver.id
             }),
-        }). then((r)=> {
-            console.log(r)
         })
-    }
+        .then((r => r.json())
+        .then(v => addVehicle(v))
+        )}
+    
+
 
     return (
         <div>
@@ -33,7 +38,7 @@ function VehicleForm() {
 
         </div>
     )
-}
+    }
 
 
 export default VehicleForm 

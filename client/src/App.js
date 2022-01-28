@@ -1,14 +1,18 @@
 import './App.css';
+import React, {Fragment} from 'react';
  import VehicleForm from './VehicleForm';
  import Vehicles from './Vehicles';
  import {useState} from 'react'
   import LoginForm from "./LoginForm"
+  import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+  
 
  function App() {
    const [driver, setDriver] = useState(null)
 
    function handleLogout() {
-     fetch("/logout", {method: "DELETE"}).then(r => {
+     fetch("/logout", 
+     {method: "DELETE"}).then(r => {
        setDriver(null)
      })
    }
@@ -17,12 +21,18 @@ import './App.css';
 
     return (
       <div className="App">
-      <header className="App-header">
-         <Vehicles/>
-         <VehicleForm/>
+        <Router>
+        <Fragment>
+        <Routes>
+          <Route path="/" element={<Vehicles driver={driver}/>}>
+         </Route>
+         <Route path="/new"  element={<VehicleForm/>} >
+         </Route>
+         </Routes>
          <button onClick={handleLogout}>logout</button>
-       </header>
-      
+         </Fragment>
+         </Router>
+         
      </div>
    );
  }

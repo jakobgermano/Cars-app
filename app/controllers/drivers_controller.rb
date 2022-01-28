@@ -15,7 +15,7 @@ class DriversController < ApplicationController
 
     def create
         driver = Driver.create(driver_params)
-        render json: driver, status: created
+        render json: driver
     end
 
     def destroy

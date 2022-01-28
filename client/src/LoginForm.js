@@ -1,4 +1,5 @@
  import React, {useState} from 'react'
+ import SignUpForm from './SignUpForm'
 
  function LoginForm({setDriver}){
      const [username, setUsername] = useState("")
@@ -18,12 +19,9 @@
      }
         
 
-             
-         
-     
-
      return(
         <div>
+            <h4>Login to your account</h4>
         <form onSubmit={handleSubmit}>
             <label> Login </label>
         <input
@@ -32,8 +30,9 @@
             value={username}
             onChange={e => setUsername(e.target.value)}
          />
-
         </form>
+        <h4>want to sign up?</h4>
+        <SignUpForm setDriver={setDriver}/>
         </div>
      )
  }

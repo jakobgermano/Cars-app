@@ -16,14 +16,19 @@ class VehiclesController < ApplicationController
     end
 
     def destroy
-        vehicle = Vehicle.find(vehicle_params)
+        vehicle = Vehicle.find(params[:id])
         vehicle.destroy
+    end
+
+    def show
+        vehicle = Vehicle.find(params[:id])
+        render json: vehicle
     end
 
     private
 
     def vehicle_params
-        params.permit(:name, :year, :driver_id)
+        params.require(:vehicle).permit(:name, :year, :driver_id, )
     end
 
 end

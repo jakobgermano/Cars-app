@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
 
   def authorize
     @current_user = Driver.find(session[:driver_id])
-    render json: {errors: "Not authorized"} unless @current_user
+    render json: {errors: "Not authorized"}, status: unauthorized unless @current_user
   end
 
 
