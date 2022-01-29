@@ -5,6 +5,7 @@ import React, {Fragment} from 'react';
  import {useState} from 'react'
   import LoginForm from "./LoginForm"
   import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+  import About from "./About";
   
 
  function App() {
@@ -27,6 +28,9 @@ import React, {Fragment} from 'react';
           <Route path="/" element={<Vehicles driver={driver}/>}>
          </Route>
          <Route path="/new"  element={<VehicleForm/>} >
+         </Route>
+         <Route exact path="/about" element={<About/>}>
+
          </Route>
          </Routes>
          <button onClick={handleLogout}>logout</button>

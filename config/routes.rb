@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resources :vehicles 
   resources :drivers
+
+  get "/me", to: "driver#show"
   
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

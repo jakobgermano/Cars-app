@@ -8,9 +8,7 @@ class DriversController < ApplicationController
     end
 
     def show
-        driver = Driver.find(params[:id])
-        #driver = Driver.find(@current_user.id)
-        render json: driver
+        render json: @current_user
     end
 
     def create

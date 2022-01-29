@@ -10,8 +10,9 @@ class VehiclesController < ApplicationController
         render json: vehicle
     end
 
-    def updated
-        vehicle = Vehicle.update(vehicle_params)
+    def update
+        vehicle = Vehicle.find(params[:id])
+        vehicle.update(vehicle_params)
         render json: vehicle
     end
 
