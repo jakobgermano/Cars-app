@@ -1,11 +1,12 @@
 import './App.css';
 import React, {Fragment} from 'react';
- import VehicleForm from './VehicleForm';
- import Vehicles from './Vehicles';
- import {useState} from 'react'
-  import LoginForm from "./LoginForm"
-  import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-  import About from "./About";
+import VehicleForm from './VehicleForm';
+import Vehicles from './Vehicles';
+import {useState} from 'react'
+import LoginForm from "./LoginForm"
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from "./About";
+import Brand from "./Brand";
   
 
  function App() {
@@ -30,7 +31,8 @@ import React, {Fragment} from 'react';
          <Route path="/new"  element={<VehicleForm/>} >
          </Route>
          <Route exact path="/about" element={<About/>}>
-
+         </Route>
+         <Route exact path="/brand" element={<Brand/>}>
          </Route>
          </Routes>
          <button onClick={handleLogout}>logout</button>

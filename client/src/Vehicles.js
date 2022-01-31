@@ -37,6 +37,8 @@ function Vehicles({driver}) {
         <div>
             <h1>Vehicles</h1>
             <Link to={'/about'}>About site</Link>
+            <br></br>
+            <Link to={'/brand'}>Brand Reference</Link>
             {vehicles.map(v => <VehicleCard editVehicle={editVehicle} vehicle={v} key={v.id} removeVehicle={removeVehicle} /> )}
             <VehicleForm driver={driver} addVehicle={addVehicle} driver={driver}/>
             
