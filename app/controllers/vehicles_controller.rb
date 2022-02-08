@@ -26,6 +26,7 @@ class VehiclesController < ApplicationController
         render json: vehicle
     end
 
+
     private
 
     def vehicle_params

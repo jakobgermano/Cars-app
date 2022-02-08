@@ -13,9 +13,10 @@ class DriversController < ApplicationController
 
     def create
         driver = Driver.create(driver_params)
+        session[:driver_id] = driver.id
         render json: driver
     end
-
+    
     def destroy
         driver = Driver.find(driver_params)
         driver.destroy
