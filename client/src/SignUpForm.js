@@ -13,15 +13,12 @@ function SignUpForm({setDriver}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                username,
-                password
-            }),
+            body: JSON.stringify({username, password}),
         })
-        .then(r => r.json())
-        .then(driver => setDriver(driver))
+        .then(r => {
+            r.json().then(driver => setDriver(driver))
+        })
     }
-
 
     return(
         <div>

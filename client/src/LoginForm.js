@@ -18,6 +18,8 @@
              r.json().then(driver => setDriver(driver))
          })
      }
+
+    
         
 
      return(
@@ -40,7 +42,7 @@
          <button type="submit">Submit</button>
         </form>
         <h4>want to sign up?</h4>
-        <SignUpForm  setDriver={setDriver}/>
+        <SignUpForm setDriver={setDriver}/>
         </div>
      )
  }
