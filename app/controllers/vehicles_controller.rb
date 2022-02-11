@@ -30,7 +30,7 @@ class VehiclesController < ApplicationController
     private
 
     def vehicle_params
-        params.require(:vehicle).permit(:name, :year, :driver_id, )
+        params.require(:vehicle).permit(:name, :year, :driver_id )
     end
 
 end

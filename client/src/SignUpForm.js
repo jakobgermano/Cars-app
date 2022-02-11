@@ -15,11 +15,11 @@ function SignUpForm({setDriver}) {
             },
             body: JSON.stringify({
                 username,
-                password,
+                password
             }),
-        }).then(r => {
-            r.json().then((driver) => setDriver(driver))
         })
+        .then(r => r.json())
+        .then(driver => setDriver(driver))
     }
 
 

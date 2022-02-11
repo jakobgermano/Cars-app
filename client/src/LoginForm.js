@@ -13,7 +13,8 @@
                  "Content-Type": "application/json",
              },
              body: JSON.stringify({username, password}),
-         }).then(r => {
+         })
+         .then(r => {
              r.json().then(driver => setDriver(driver))
          })
      }
@@ -39,7 +40,7 @@
          <button type="submit">Submit</button>
         </form>
         <h4>want to sign up?</h4>
-        <SignUpForm setDriver={setDriver}/>
+        <SignUpForm  setDriver={setDriver}/>
         </div>
      )
  }

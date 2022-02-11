@@ -13,8 +13,9 @@ class DriversController < ApplicationController
 
     def create
         driver = Driver.create(driver_params)
-        session[:driver_id] = driver.id
-        render json: driver
+            if driver.valid? 
+            render json: driver
+        end
     end
     
     def destroy
@@ -25,7 +26,7 @@ class DriversController < ApplicationController
     private
 
     def driver_params
-        params.permit(:username, :password, :name, :age)
+        params.require(:driver).permit(:username, :password)
     end
 
 end
