@@ -4,20 +4,24 @@ import React, {useState} from 'react';
 function SignUpForm({setDriver}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    
    
 
     function handleSubmit(e) {
-        e.preventDefault()
-        fetch("/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({username, password}),
+        e.preventDefault();
+       fetch("/signup", {
+           method: "POST",
+           headers: {
+               "Content-Type": "application/json",
+           },
+           body: JSON.stringify({driver: {username, password}}),
+       }).then(r => {r.json().then(driver => {
+           //console.log(driver)
+           setDriver(driver)
         })
-        .then(r => {
-            r.json().then(driver => setDriver(driver))
-        })
+       
+           
+       })
     }
 
     return(
@@ -38,7 +42,7 @@ function SignUpForm({setDriver}) {
          />
         
          <button type="submit">Submit</button>
-        
+
 
         </form>
         </div>

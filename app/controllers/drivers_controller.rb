@@ -1,6 +1,5 @@
 class DriversController < ApplicationController
     skip_before_action :authorize, only: :create
-    #, only: :create
 
     def index
         drivers = Driver.all
@@ -13,15 +12,18 @@ class DriversController < ApplicationController
 
     def create
         driver = Driver.create(driver_params)
-            if driver.valid? 
-            render json: driver
+        if driver.valid? 
+            session[:driver_id] = driver.id
+            render json: driver, status: :created
+        else
+            render json: {error: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
     
-    def destroy
-        driver = Driver.find(driver_params)
-        driver.destroy
-    end
+    # def destroy
+    #     driver = Driver.find(driver_params)
+    #     driver.destroy
+    # end
 
     private
 
