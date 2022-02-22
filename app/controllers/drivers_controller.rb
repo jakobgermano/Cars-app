@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+   
     skip_before_action :authorize, only: :create
 
     def index
@@ -19,6 +20,8 @@ class DriversController < ApplicationController
             render json: {error: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
+
+   
     
     # def destroy
     #     driver = Driver.find(driver_params)

@@ -2,7 +2,7 @@ import './App.css';
 import React, {Fragment} from 'react';
 import VehicleForm from './VehicleForm';
 import Vehicles from './Vehicles';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import LoginForm from "./LoginForm"
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from "./About";
@@ -11,6 +11,15 @@ import Brand from "./Brand";
 
  function App() {
    const [driver, setDriver] = useState(null)
+
+
+   useEffect(() => {
+     fetch('/me').then((r) => {
+       if (r.ok) {
+         r.json().then((driver) => setDriver(driver));
+       }
+     })
+   }, []);
    
 
    

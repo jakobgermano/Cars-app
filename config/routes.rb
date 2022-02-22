@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  #name of the nested route
+  #cant use driver show action
   
   resources :vehicles 
   resources :drivers
+
 
   get "/me", to: "drivers#show"
 

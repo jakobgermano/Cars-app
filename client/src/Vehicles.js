@@ -8,7 +8,7 @@ function Vehicles({driver}) {
 
     
 
-     function removeVehicle(vehicle) {
+    function removeVehicle(vehicle) {
          setVehicles((vehicles) => vehicles.filter(v => v.id !== vehicle.id))
 
      }
@@ -17,7 +17,7 @@ function Vehicles({driver}) {
         setVehicles([...vehicles, vehicle])
     }
     
-     function editVehicle(vehicle) {
+    function editVehicle(vehicle) {
          const edited = vehicles.map(v => {
              if (vehicle.id === v.id) {
                  return vehicle
@@ -29,9 +29,11 @@ function Vehicles({driver}) {
      }
 
     useEffect(()=> {
-        fetch("/vehicles")
+        fetch(`/drivers/${driver.id}`)
         .then((r) => r.json())
-        .then(setVehicles)
+        .then((d) => {
+            setVehicles(d.vehicles)
+        })
     }, [])
 
     
